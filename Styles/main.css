@@ -4,18 +4,26 @@
 }
 body{
     width: 100vw;
-    height: 100vh;
-    background-color: #1f5a6e;
+    
+    
+}
+.content-app{
+    width: 100%;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    background-color: #1f5a6e;
+    position: absolute;
+
 }
 
 .app{
-    width: 600px;
+    width: 500px;
     height: 630px;
     background-color: aliceblue;
+    
 }
 
 
@@ -25,12 +33,14 @@ header{
     display: flex;
     justify-content: center;
     text-align: center;
+    
 }
 
 header nav{
     background-color: aqua;
     display: flex;
-    padding: 30px;
+    padding: 10px;
+    width: 100%;
     
 }
 
@@ -100,21 +110,32 @@ header nav{
     color: white;
     padding: 10px;
 }
-.task-content{
+#task-content{
     width: 100%;
     height: 350px;
     display: flex;
+    flex-direction: column;
     
-    justify-content: center;
+    align-items: center;
     
 }
 .task{
+    display: flex;
     width: 70%;
     height: 40px;
     background-color: antiquewhite;
     padding: 20px;
     margin-top: 20px;
 
+}
+#close-task{
+    margin-left: 20px;
+    font-size: 30px;
+    color: blue;
+}
+
+.delate-task{
+    margin-right: 20px;
 }
 /*main-and-tasks */
 
@@ -128,7 +149,7 @@ header nav{
     margin-top: 40px;
 }
 
-#agg-task{
+#open-task{
     width: 70%;
     margin-right: 12%;
 }
@@ -140,4 +161,87 @@ header nav{
     text-align: left;
     margin-left:  40px;
 
+}
+
+
+/* 2.-Add tasks menu*/
+
+/*container and section */
+
+#container-add-task{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position:absolute;
+    z-index: 10000;
+    
+}
+
+
+.section-add-task{
+    width: 500px;
+    height: 600px;
+    background-color: bisque;
+}
+
+/*nav*/
+
+.nav-section{
+    width: 500px;
+    height: 50px;
+    background-color: blueviolet;
+    display: flex;
+    
+}
+
+.text-mision{
+    width: 70%  ;
+    text-align: center;
+    
+}
+
+.text-mision h3{
+    margin-top: 15px;
+}
+
+.button-back{
+    width: 15%;
+    height: auto;
+    background-color: aquamarine;
+    
+}
+
+.done-button{
+    width: 15%;
+    height: auto;
+    background-color: aquamarine;
+}
+
+/* inputs */
+
+.task-title-description{
+    padding: 40px;
+    height: 120px;
+    background-color: chocolate;
+}
+
+#input-task{
+    color:white;
+    display: block;
+    border: none;
+    background-color: transparent;
+    border-bottom: solid black 1px;
+    margin-bottom: 20px;
+}
+
+#input-description{
+    color:white;
+    border: none;
+    background-color: transparent;
+    border-bottom: solid black 1px;
+    margin-bottom: 20px;
+    display: block;
 }
