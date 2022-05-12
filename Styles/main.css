@@ -110,6 +110,13 @@ header nav{
     color: white;
     padding: 10px;
 }
+
+/* Content Task*/
+
+#section-task
+{display: block;
+}
+
 #task-content{
     width: 100%;
     height: 350px;
@@ -117,7 +124,7 @@ header nav{
     flex-direction: column;
     
     align-items: center;
-    
+/*menu add task */
 }
 .task{
     display: flex;
@@ -163,6 +170,84 @@ header nav{
 
 }
 
+/*habits-content*/
+#section-habits{
+    display: none;
+    background-color: mediumvioletred;
+}
+
+.habits-content{
+
+    width: 100%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+}
+/* ------- */
+.main-and-habits{
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    background-color: beige ;
+    margin-top: 40px;
+}
+
+#open-habits{
+    width: 70%;
+    margin-right: 12%;
+}
+
+.main-menu{
+    width: 40px;
+    height: 40px;
+    background-color: aquamarine;
+    text-align: left;
+    margin-left:  40px;
+}
+
+/*random section */
+
+#section-random{
+    display: none;
+    background-color: goldenrod;
+}
+
+.random-content{
+
+    width: 100%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+}
+/* ------- */
+.main-and-random{
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    background-color: beige ;
+    margin-top: 40px;
+}
+
+#open-random{
+    width: 70%;
+    margin-right: 12%;
+}
+
+.main-menu{
+    width: 40px;
+    height: 40px;
+    background-color: aquamarine;
+    text-align: left;
+    margin-left:  40px;
+}
 
 /* 2.-Add tasks menu*/
 
