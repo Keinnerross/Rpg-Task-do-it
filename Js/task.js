@@ -3,13 +3,18 @@
 let open = document.querySelector('#open-task');
 let close = document.querySelector('#close-task')
 let box = document.querySelector('#container-add-task')
+let doneButtonTask = document.querySelector('#done-button-task')
 
 open.addEventListener('click', () => {
-    box.style.display= 'flex' 
+    box.style.display= 'flex'
 });
 
 close.addEventListener('click', () => {
-    box.style.display= 'none' 
+    box.style.display= 'none'
+});
+
+doneButtonTask.addEventListener('click', () => {
+    box.style.display= 'none'
 });
 
 
@@ -20,7 +25,7 @@ document.getElementById('form-task').addEventListener('submit', saveTask);
 
 function saveTask(e){
 
-    e.preventDefault();
+    
 
     let taskValue = document.getElementById('input-task').value;
     let descriptionValue = document.getElementById('input-description').value;
@@ -66,6 +71,7 @@ function getTask(){
             
 
         </div>`
+
     }
 }
 
