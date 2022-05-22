@@ -19,74 +19,160 @@ doneButtonTask.addEventListener('click', () => {
 
 
 
-//Save Task//
+//Task Constructor
 
-document.getElementById('form-task').addEventListener('submit', saveTask);
+class Task{
+    constructor(titleTask, descriptionTask, taskComplete){
+        this.titleTask = titleTask;
+        this.descriptionTask = descriptionTask;
+        this.taskComplete = taskComplete;
 
-function saveTask(e){
-
-    
-
-    let taskValue = document.getElementById('input-task').value;
-    let descriptionValue = document.getElementById('input-description').value;
-    
-    const task ={
-        taskValue, //title //
-        descriptionValue //description//
-    };
-
-    if(localStorage.getItem('tasks') === null ){
-        let tasks = [];
-        tasks.push(task);
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-    } else {
-       let tasks = JSON.parse (localStorage.getItem('tasks'));
-       tasks.push(task);
-       localStorage.setItem('tasks', JSON.stringify(tasks));
     }
-
-    getTask();
 }
 
-//Get Task//
+//UI Events
+class UItask{
+    addTask(task){
+        const viewTask = document.getElementById('task-content');
+        const element = document.createElement('div');
+        element.className = 'task';
+        element.innerHTML= `
+        <input type="radio">
+        <div class="container">
+            <div class="#">${task.titleTask}</div>
+            <div class="#">${task.descriptionTask}</div>
+        </div>
+        <button name="delateTask">x</button>
+        `
+        viewTask.appendChild(element);
 
-function getTask(){
-    let tasks = JSON.parse(localStorage.getItem('tasks'));
-    let tasksView = document.getElementById('task-content');
+    }
 
-    tasksView.innerHTML = '';
+    delateTask  (){
 
-    for(let i = 0; i < tasks.length; i++){
+    }
+}
+//DOM Events
 
-        let title = tasks[i].taskValue;
-        let description =tasks[i].descriptionValue;
+document.getElementById('form-task').addEventListener('submit', (e) => {
 
-        tasksView.innerHTML += `<div class = "task">
-        <button class = "delate-task" onclick = "delateTask('${title}')">
-                X
-            </button>    
-        <div class = "task-body">
-                <p>${title} <br> ${description}</p>
-            </div>
+    const titleTask = document.getElementById('input-task').value;
+    const descriptionTask = document.getElementById('input-description').value;
+    const completeTask = false;
+
+    const task = new Task(titleTask, descriptionTask, completeTask);
+    const ui = new UItask();
+    ui.addTask(task);
+
+    e.preventDefault();
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function saveTask(e){
+
+    
+
+    
+    
+//     const task ={
+//         taskValue, //title //
+//         descriptionValue //description//
+//     };
+
+//     if(localStorage.getItem('tasks') === null ){
+//         let tasks = [];
+//         tasks.push(task);
+//         localStorage.setItem('tasks', JSON.stringify(tasks));
+//     } else {
+//        let tasks = JSON.parse (localStorage.getItem('tasks'));
+//        tasks.push(task);
+//        localStorage.setItem('tasks', JSON.stringify(tasks));
+//     }
+
+//     getTask();
+// }
+
+// //Get Task//
+
+// function getTask(){
+//     let tasks = JSON.parse(localStorage.getItem('tasks'));
+//     let tasksView = document.getElementById('task-content');
+
+//     tasksView.innerHTML = '';
+
+//     for(let i = 0; i < tasks.length; i++){
+
+//         let title = tasks[i].taskValue;
+//         let description =tasks[i].descriptionValue;
+
+//         tasksView.innerHTML += `<div class = "task">
+//         <button class = "delate-task" onclick = "delateTask('${title}')">
+//                 X
+//             </button>    
+//         <div class = "task-body">
+//                 <p>${title} <br> ${description}</p>
+                
+//             </div>
             
 
-        </div>`
+//         </div>`
 
-    }
-}
+//     }
+// }
 
-getTask();
+// getTask();
 
-function delateTask(title){
-    let tasks = JSON.parse(localStorage.getItem('tasks'));
-    for (i = 0; i < tasks.length; i++){
-        if (tasks[i].taskValue == title){
-            tasks.splice(i, 1);
-        }
-    }
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    getTask();
-};
+// function delateTask(title){
+//     let tasks = JSON.parse(localStorage.getItem('tasks'));
+//     for (i = 0; i < tasks.length; i++){
+//         if (tasks[i].taskValue == title){
+//             tasks.splice(i, 1);
+//         }
+//     }
+//     localStorage.setItem('tasks', JSON.stringify(tasks));
+//     getTask();
+// };
 
 
 

@@ -419,3 +419,17 @@ header nav{
     font-size: 30px;
     color: blue;
 }
+
+/* Tarjets habits */
+
+.habit{
+    display: flex;
+    width: 70%;
+    height: 40px;
+    background-color: aquamarine;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+ 

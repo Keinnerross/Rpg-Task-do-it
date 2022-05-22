@@ -16,72 +16,95 @@ buttonHabit.addEventListener('click', () => {
 });
 
 
+//* Habit Create
 
-//Save Task//
-
-document.getElementById('form-habit').addEventListener('submit', saveHabit);
-
-function saveHabit(e){
-
-    
-
-    let habitValue = document.getElementById('input-habit').value;
-    let descriptionValueHabit = document.getElementById('input-description_habit').value;
-    
-    const habit ={
-        habitValue, //title //
-        descriptionValueHabit //description//
-    };
-
-    if(localStorage.getItem('habits') === null ){
-        let habits = [];
-        habits.push(habit);
-        localStorage.setItem('habits', JSON.stringify(habits));
-    } else {
-       let habits = JSON.parse (localStorage.getItem('habits'));
-       habits.push(habit);
-       localStorage.setItem('habits', JSON.stringify(habits));
+class Habit{
+    constructor(title, description, habitComplete, habitFail){
+        this.title = title;
+        this.description = description;
+        this.habitComplete = habitComplete;
+        this.habitFail = habitFail;
     }
-
-    getHabit();
 }
 
-//Get Task//
+// Interface
 
-function getHabit(){
-    let habits = JSON.parse(localStorage.getItem('habits'));
-    let habitsView = document.getElementById('habit-content');
+class UI{
+    addHabit(habit) {
 
-    habitsView.innerHTML = '';
+        const viewHabit = document.getElementById('habit-content');
+        const element = document.createElement('div');
+        element.className ="habit";
+        element.innerHTML = `
+        <button name= "complete">+</button>
+        <div class="container">
+            <div class="#">${habit.title}</div>
+            <div class="#">${habit.description}</div>
+        </div>
+        <div>
+            <div>${habit.habitComplete}</div>
+            <div>${habit.habitFail}</div>
+        </div>
+        <button name= "fail">-</button>
+        
+        `
+        viewHabit.appendChild(element);
+    }
 
-    for(let i = 0; i < habits.length; i++){
+    deleteHabit(){
+        
+    }
 
-        let title = habits[i].habitValue;
-        let description =habits[i].descriptionValueHabit;
-
-        habitsView.innerHTML += `<div class = "habit">
-        <button class = "delate-habit" onclick = "delateHabit('${title}')">
-                X
-            </button>    
-        <div class = "habit-body">
-                <p>${title} <br> ${description}</p>
-            </div>
+    habitComplete(element){    
+        
+        
+        if(element.name === 'complete'){
             
+            let valor = parseInt(element.nextElementSibling.nextElementSibling.firstElementChild.textContent) + 1;
+            element.nextElementSibling.nextElementSibling.firstElementChild.innerHTML = valor;
+            
+         }      
+    }
 
-        </div>`
-
+    habitFail(element){
+        if(element.name === 'fail'){
+            let valor = parseInt(element.previousElementSibling.lastElementChild.textContent) -1;
+            element.previousElementSibling.lastElementChild.innerHTML = valor;
+            }
     }
 }
 
-getHabit();
+//Events DOM//
 
-function delateHabit(title){
-    let habits = JSON.parse(localStorage.getItem('habits'));
-    for (i = 0; i < habits.length; i++){
-        if (habits[i].habitValue == title){
-            habits.splice(i, 1);
-        }
-    }
-    localStorage.setItem('habits', JSON.stringify(habits));
-    getHabit();
-};
+    // Add Habit Event
+
+document.getElementById('form-habit').addEventListener('submit', (e) => {
+
+    const title = document.getElementById('input-habit').value;
+    const description = document.getElementById('input-description_habit').value;
+    const habitComplete = 0;
+    const habitFail = 0;
+
+    const habit = new Habit(title, description, habitComplete, habitFail);
+    const ui = new UI();
+    ui.addHabit(habit);   
+
+    e.preventDefault();
+});
+
+    //Habit Complete Event 
+
+document.getElementById('habit-content').addEventListener('click', (e) =>{
+    
+    const ui = new UI();
+    ui.habitComplete(e.target);
+    
+});
+
+    //Habit Fail Event
+document.getElementById('habit-content').addEventListener('click', (e) =>{
+    
+    const ui = new UI();
+    ui.habitFail(e.target);
+    
+});
