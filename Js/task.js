@@ -22,10 +22,10 @@ doneButtonTask.addEventListener('click', () => {
 //Task Constructor
 
 class Task{
-    constructor(titleTask, descriptionTask, taskComplete){
+    constructor(titleTask, descriptionTask,){
         this.titleTask = titleTask;
         this.descriptionTask = descriptionTask;
-        this.taskComplete = taskComplete;
+        
 
     }
 }
@@ -37,35 +37,79 @@ class UItask{
         const element = document.createElement('div');
         element.className = 'task';
         element.innerHTML= `
-        <input type="radio">
+        <input type="checkbox" class="task-complete-false">
         <div class="container">
             <div class="#">${task.titleTask}</div>
             <div class="#">${task.descriptionTask}</div>
         </div>
         <button name="delateTask">x</button>
         `
-        viewTask.appendChild(element);
-
+        viewTask.prepend(element);
     }
 
-    delateTask  (){
 
+    delateTask(element){
+        if(element.name === 'delateTask'){
+            element.parentNode.remove();
+        }
+    }
+
+    taskFinish(element){
+        const viewTask = document.getElementById('task-content');
+        
+
+        
+        if(element.className === 'task-complete-false'){
+            
+            element.parentNode.className='task-completed';
+            element.className='task-complete-true'
+            viewTask.appendChild(element.parentNode);
+        }
+
+        else if(element.className === 'task-complete-true'){
+            
+            element.parentNode.className='task';
+            element.className='task-complete-false'
+            viewTask.prepend(element.parentNode);
+        }
+        
+        
     }
 }
 //DOM Events
 
+// Add Task
 document.getElementById('form-task').addEventListener('submit', (e) => {
 
     const titleTask = document.getElementById('input-task').value;
     const descriptionTask = document.getElementById('input-description').value;
     const completeTask = false;
 
-    const task = new Task(titleTask, descriptionTask, completeTask);
+    const task = new Task(titleTask, descriptionTask,);
     const ui = new UItask();
     ui.addTask(task);
 
     e.preventDefault();
 })
+
+//Delate Task
+
+document.getElementById('task-content').addEventListener('click', (e) => {
+    const ui = new UItask();
+    ui.delateTask(e.target);
+    
+})
+
+//Task Complete
+
+document.getElementById('task-content').addEventListener('click', (e) => {
+    const ui = new UItask();
+    ui.taskFinish(e.target);
+})
+
+
+
+
 
 
 

@@ -111,7 +111,7 @@ header nav{
     padding: 10px;
 }
 
-/* Content Task*/
+/*  Task content*/
 
 #section-task
 {display: block;
@@ -122,10 +122,9 @@ header nav{
     height: 350px;
     display: flex;
     flex-direction: column;
-    
     align-items: center;
-/*menu add task */
-}
+    }
+
 .task{
     display: flex;
     width: 70%;
@@ -133,8 +132,19 @@ header nav{
     background-color: antiquewhite;
     padding: 20px;
     margin-top: 20px;
-
 }
+
+.task-completed{
+    display: flex;
+    width: 70%;
+    height: 40px;
+    background-color: gray;
+    color:white;
+    padding: 20px;
+    margin-top: 20px;
+/*menu add task */
+}
+
 #close-task{
     margin-left: 20px;
     font-size: 30px;
@@ -169,6 +179,8 @@ header nav{
     margin-left:  40px;
 
 }
+
+
 
 /*habits-content*/
 #section-habit{
@@ -431,5 +443,3 @@ header nav{
     margin-top: 20px;
 }
 
-
- 

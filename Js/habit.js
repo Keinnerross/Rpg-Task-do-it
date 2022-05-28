@@ -72,6 +72,13 @@ class UI{
             element.previousElementSibling.lastElementChild.innerHTML = valor;
             }
     }
+
+    habitDelate(element){
+        if(element.className === 'habit'){
+            element.remove();
+        }
+
+    }
 }
 
 //Events DOM//
@@ -106,5 +113,14 @@ document.getElementById('habit-content').addEventListener('click', (e) =>{
     
     const ui = new UI();
     ui.habitFail(e.target);
+    
+});
+
+    //habit delate Para remover hay que dar doble click
+
+document.getElementById('habit-content').addEventListener('dblclick', (e) =>{
+    
+    const ui = new UI();
+    ui.habitDelate(e.target);
     
 });
