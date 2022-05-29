@@ -51,10 +51,6 @@ class UI{
         viewHabit.appendChild(element);
     }
 
-    deleteHabit(){
-        
-    }
-
     habitComplete(element){    
         
         
