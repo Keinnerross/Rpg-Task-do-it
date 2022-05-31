@@ -1,3 +1,10 @@
+:root{
+    --margin-box: 3 ++;
+    --margin-menu: 400px;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
 *{
     margin: 0;
     padding: 0;;
@@ -14,15 +21,14 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #1f5a6e;
     position: absolute;
 
 }
 
 .app{
-    width: 500px;
-    height: 630px;
-    background-color: aliceblue;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f9f9f9;
     
 }
 
@@ -31,35 +37,48 @@ header{
     width: 100%;
     height: auto;
     display: flex;
-    justify-content: center;
-    text-align: center;
+    
+
     
 }
 
 header nav{
-    background-color: aqua;
+    background-color: #c6c2fe;
     display: flex;
-    padding: 10px;
-    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    width: 100vw;
+    justify-content: center;
+    box-shadow: 0px 8px 11px -2px rgba(0,0,0,0.16);
+    
     
 }
 
 .perfil-picture{
 
-    width: 40px;
-    height: 40px;
-    background-color: red;    
+    width: 115px;
+    height: 100px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-image: url("https://i.pinimg.com/564x/fd/dc/42/fddc426c79032b10e7693310df797411.jpg");  
+    background-size: cover; 
+    box-shadow: 0px 8px 8px -2px rgba(0,0,0,0.21);
 }
 
 .hero-description{
-    width: 400px;
+    width: 100%;
+  
     margin-left: 20px;
 }
 
 .exp-bar{
     width: 370px;
     height: 20px;
-    background-color: greenyellow;
+    background-color: #003a5d;
+    border-radius: 7px;
 
 }
 
@@ -72,7 +91,7 @@ header nav{
 .coin{
     width: 10px;
     height: 10px;
-    background-color: yellow;
+    
     display: inline-flex;
 }
 
@@ -94,67 +113,189 @@ header nav{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 40px;
+    
 }
 
 .nav-task{
     width: 100%;
     height: 40px;
-    background-color: red;
-    text-align: center;padding-top: 15px;
-    margin-bottom: 5px;
+    text-align: center;
+    padding-top: 15px;
+    background-color: #f9f9f9;
 }
 
-.nav-task a{
+.nav-noaction{
     font-family: poppins;
     text-decoration: none;
-    color: white;
+    color: #003a5d;
     padding: 10px;
 }
 
+.nav-action{
+    font-family: poppins;
+    text-decoration: none;
+    color: white;
+    background-color: #003a5d;
+    border-radius: 9px;
+    padding: 10px;
+}
 /*  Task content*/
 
-#section-task
-{display: block;
+#section-task{
+    
+
+    height: 70vh;
+    max-height: auto;
+    background-color: #f9f9f9;
+   
+    
 }
 
 #task-content{
-    width: 100%;
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    
+    width: 80%;
+    height: var(--margin-box);
+    text-align: justify;
+    margin: auto;
+   
+    
     }
-
+/***task card**/
 .task{
-    display: flex;
-    width: 70%;
-    height: 40px;
-    background-color: antiquewhite;
-    padding: 20px;
+    display: inline-flex;
+    width: 25%;
+    min-width: 100px;
+    height: 75px; ;
+    min-height:65px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 11px -2px rgba(0,0,0,0.16);
+}
+
+
+.container-task{
+    width: 75%;
+    height: 100%;
+    max-width: 100%;
+    padding-left: 20px;
+    padding-top: 10px;
+   
+}
+
+.title{
+    
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.description{
+    font-size: 14px;
+    font-weight: 300;
+    height: auto;
+}
+.check-container{
+    background-color: #c6c2fe;
+    width: 50px;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    
+
+}
+.delate-container{
+    background-color: #c6c2fe;
+    width: 50px;
+    height: 100%;
+    text-align: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.task-complete-false{
+    border-radius: 250px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    margin: auto;
     margin-top: 20px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.task-complete-false:hover{
+    border-radius: 250px;
+    width: 20px;
+    height: 20px;
+    background-color: #54e823;
+    transition: 0.2s;
+    margin: auto;
+    margin-top: 20px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+
+
+.task-complete-true{
+    border-radius: 250px;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    margin-top: 20px;
+    z-index: 100;
+    cursor: pointer;
+    background-color: white;
+}
+
+.task-complete-true:hover{
+    border-radius: 250px;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    margin-top: 20px;
+    z-index: 100;
+    cursor: pointer;
+    background-color: #54e823;
+    transition: 0.2s;
 }
 
 .task-completed{
-    display: flex;
-    width: 70%;
-    height: 40px;
-    background-color: gray;
-    color:white;
-    padding: 20px;
-    margin-top: 20px;
-/*menu add task */
+
+    display: inline-flex;
+    width: 25%;
+    min-width: 100px;
+    height: 75px; ;
+    min-height:65px;
+    background-color: gainsboro;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 11px -2px rgba(0,0,0,0.16);
+    
 }
 
+/*menu add task */
+
+
 #close-task{
+    
     margin-left: 20px;
     font-size: 30px;
     color: blue;
+    cursor: pointer;
+    
 }
 
-.delate-task{
-    margin-right: 20px;
+.delateTask{
+    color:#003a5d;
+    background-color: transparent;
+    border: 0;
+    font-size: 27px;
+    margin-top: 12px;
+    z-index: 200;
+    cursor: pointer;
 }
-/*main-and-tasks */
 
 .main-and-tasks{
     width: 100%;
@@ -162,21 +303,57 @@ header nav{
     justify-content: center;
     align-content: center;
     display: flex;
-    background-color: beige ;
-    margin-top: 40px;
+    padding-top: 120px;
+    cursor: pointer;
+    
 }
+.section-open-task-menu{
+    width:25%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 8px 8px -2px rgba(0,0,0,0.21);
+}
+
+.section-open-task-menu:hover{
+    transform: scale(1.06);
+    transition: 0.5s;
+}
+
 
 #open-task{
-    width: 70%;
-    margin-right: 12%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    cursor: pointer;
+    background-color: white;
+    
 }
 
-.main-menu{
+#open-task p{
+    padding-top: 10px;
+    padding-left: 20px;
+    color: #b2b2b2;
+    font-weight: 200px;
+}
+.icon{
     width: 40px;
-    height: 40px;
-    background-color: aquamarine;
+    height: 100%;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+.main-menu-task{
+    
+    width: 30px;
+    height: 100%;
+    background-image: url(https://www.samueldiosdado.com/wp-content/uploads/2017/08/Men%C3%BA-hamburguesa-herramienta-practica-o-icono-inutil.png);
+    background-size: contain;
+    background-repeat: no-repeat;
     text-align: left;
-    margin-left:  40px;
+    background-color: white;
+    background-position-y: center;
+    border-right: solid white 15px;
 
 }
 
@@ -184,18 +361,19 @@ header nav{
 
 /*habits-content*/
 #section-habit{
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    background-color: darkmagenta;
     display: none;
-    background-color: mediumvioletred;
 }
 
 #habit-content{
 
-    width: 100%;
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    
-    align-items: center;
+    width: 80%;
+    height: var(--margin-box);
+    text-align: justify;
+    margin: auto;
 }
 /* ------- */
 .main-and-habit{
@@ -204,38 +382,45 @@ header nav{
     justify-content: center;
     align-content: center;
     display: flex;
-    background-color: beige ;
-    margin-top: 40px;
+    padding-top: 120px;
 }
 
 #open-habit{
     width: 70%;
-    margin-right: 12%;
+    height: 100%;
+    display: flex;
+    cursor: pointer;
+    background-color: aqua;
 }
 
-.main-menu{
+#open-habit p{
+    padding-top: 10px;
+    padding-left: 20px
+}
+
+.main-menu-habit{
     width: 40px;
-    height: 40px;
+    height: 100%;
     background-color: aquamarine;
     text-align: left;
-    margin-left:  40px;
 }
 
 /*random section */
 
 #section-random{
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    background-color: gold;
     display: none;
-    background-color: goldenrod;
 }
 
-.random-content{
+#random-content{
 
-    width: 100%;
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    
-    align-items: center;
+    width: 80%;
+    height: var(--margin-box);
+    text-align: justify;
+    margin: auto;
 }
 /* ------- */
 .main-and-random{
@@ -244,21 +429,28 @@ header nav{
     justify-content: center;
     align-content: center;
     display: flex;
-    background-color: beige ;
-    margin-top: 40px;
+    padding-top: 120px;
 }
 
 #open-random{
     width: 70%;
-    margin-right: 12%;
+    height: 100%;
+    display: flex;
+    cursor: pointer;
+    background-color: aqua;
 }
 
-.main-menu{
+#open-random p{
+    padding-top: 10px;
+    padding-left: 20px
+}
+
+.main-menu-random{
     width: 40px;
-    height: 40px;
+    height: 100%;
     background-color: aquamarine;
     text-align: left;
-    margin-left:  40px;
+    
 }
 
 /* 2.-Add tasks menu*/
@@ -268,7 +460,7 @@ header nav{
 #container-add-task{
     width: 100%;
     height: 100%;
-    background-color: red;
+    backdrop-filter: brightness(80%) blur(2px);   
     display: none;
     align-items: center;
     justify-content: center;
@@ -278,25 +470,21 @@ header nav{
 }
 
 
-.section-add-task{
-    width: 500px;
-    height: 600px;
-    background-color: bisque;
-}
 
-/*nav*/
+/*nav agg task*/ 
 
 .nav-section{
-    width: 500px;
-    height: 50px;
-    background-color: blueviolet;
-    display: flex;
-    
+    width: 100%;
+    height: 130px; 
+    margin-bottom: 20px;   
 }
 
 .text-mision{
-    width: 70%  ;
-    text-align: center;
+    width: 100%  ;
+    text-align: justify;
+    padding-left: 50px;
+    padding-right: 50px;
+
     
 }
 
@@ -305,42 +493,112 @@ header nav{
 }
 
 .button-back{
-    width: 15%;
+    width: 95%;
     height: auto;
-    background-color: aquamarine;
+    text-align: right;
     
 }
 
 .done-button{
-    width: 15%;
-    height: auto;
-    background-color: aquamarine;
+    width: 100%;
+    height: 50px;
+    display: blockf;
+    background-color: #c6c2fe;
+    border-bottom-right-radius:25px;
+    border-bottom-left-radius:25px;
+    
 }
+
+.done-button-container{
+width: 100%;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 10px;
+
+}
+
+
 
 /* inputs */
 
 .task-title-description{
-    padding: 40px;
-    height: 120px;
-    background-color: chocolate;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 14px;
+
 }
+
+.task-title-description p{
+    color: #46436e;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 2px;
+    font-size: 14px;
+}
+
+.section-add-task{
+    width: 500px;
+    height: auto;
+    background-color: #F9F9F9;
+    border-radius: 25px;
+    }
+
 
 #input-task{
-    color:white;
+    background-color: #e5e5e5 ;
+    width: 380px;
+    padding: 10px;
     display: block;
     border: none;
-    background-color: transparent;
-    border-bottom: solid black 1px;
+    border-radius: 25px;
     margin-bottom: 20px;
 }
 
+
+
 #input-description{
-    color:white;
-    border: none;
-    background-color: transparent;
-    border-bottom: solid black 1px;
-    margin-bottom: 20px;
+    background-color: #e5e5e5 ;
+    width: 380px;
+    padding: 10px;
     display: block;
+    border: none;
+    border-radius: 25px;
+    margin-bottom: 20px;    
+}
+
+#done-button-task{
+    background-color: white;
+    color:#003a5d ;
+    border-radius: 9px;
+    padding: 5px;
+    border: 0;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#done-button-task:hover{
+    background-color: white;
+    color:#003a5d ;
+    border-radius: 9px;
+    padding: 5px;
+    border: 0;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    filter: none;
+}
+
+#cancel-button{
+    background-color: white;
+    color:#003a5d ;
+    border-radius: 9px;
+    padding: 5px;
+    border: 0;
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
   
@@ -349,7 +607,6 @@ header nav{
 #container-add-habit{
     width: 100%;
     height: 100%;
-    background-color: red;
     display: none;
     align-items: center;
     justify-content: center;
@@ -368,13 +625,7 @@ header nav{
 
 /*nav*/
 
-.nav-section{
-    width: 500px;
-    height: 50px;
-    background-color: blueviolet;
-    display: flex;
-    
-}
+
 
 .text-habit{
     width: 70%  ;
@@ -385,20 +636,6 @@ header nav{
 .text-habit h3{
     margin-top: 15px;
 }
-
-.button-back{
-    width: 15%;
-    height: auto;
-    background-color: aquamarine;
-    
-}
-
-.done-button{
-    width: 15%;
-    height: auto;
-    background-color: aquamarine;
-}
-
 
 /*inputs habitos */
 
@@ -435,11 +672,20 @@ header nav{
 /* Tarjets habits */
 
 .habit{
-    display: flex;
-    width: 70%;
+    display: inline-flex;
+    width: 25%;
+    min-width: 100px;
     height: 40px;
-    background-color: aquamarine;
+    background-color: antiquewhite;
     padding: 20px;
-    margin-top: 20px;
+    margin: 20px;
 }
 
+.select-task{
+    cursor: move;
+}
+
+.fantasma{
+    opacity: 0;
+    cursor: move;   
+}

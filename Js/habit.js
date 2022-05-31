@@ -31,7 +31,7 @@ class Habit{
 
 class UI{
     addHabit(habit) {
-
+        const formHabit = document.getElementById('form-habit'); // Para vaciar los imputs 
         const viewHabit = document.getElementById('habit-content');
         const element = document.createElement('div');
         element.className ="habit";
@@ -48,6 +48,7 @@ class UI{
         <button name= "fail">-</button>
         
         `
+        formHabit.reset();  // Para vaciar los imputs 
         viewHabit.appendChild(element);
     }
 
@@ -80,8 +81,9 @@ class UI{
 //Events DOM//
 
     // Add Habit Event
-
-document.getElementById('form-habit').addEventListener('submit', (e) => {
+    const formHabit = document.getElementById('form-habit');
+        
+    formHabit.addEventListener('submit', (e) => {
 
     const title = document.getElementById('input-habit').value;
     const description = document.getElementById('input-description_habit').value;
@@ -90,7 +92,8 @@ document.getElementById('form-habit').addEventListener('submit', (e) => {
 
     const habit = new Habit(title, description, habitComplete, habitFail);
     const ui = new UI();
-    ui.addHabit(habit);   
+    ui.addHabit(habit); 
+    
 
     e.preventDefault();
 });
@@ -119,4 +122,13 @@ document.getElementById('habit-content').addEventListener('dblclick', (e) =>{
     const ui = new UI();
     ui.habitDelate(e.target);
     
+});
+
+//Drag and Drop
+let habitList = document.getElementById('habit-content');
+
+Sortable.create(habitList, {
+    animation: 150,
+    chosenClass: "select-task",
+    dragClass: "fantasma"
 });

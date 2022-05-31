@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Styles/main.css">
     <link rel="stylesheet" href="Styles/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <title>Rpg to-do list ☺
     </title>
 </head>
@@ -32,9 +35,9 @@
 
         <section class="task-menu">
             <div class="nav-task">
-                <a href="#" class="task-nav">TASKS</a>
-                <a href="#" class="habit-nav">HABBITS</a>
-                <a href="#" class="random-nav">RANDOM</a> 
+                <a href="#" id="task-nav" class="nav-noaction">TASKS</a>
+                <a href="#" id="habit-nav" class="nav-action">HABITS</a>
+                <a href="#" id="random-nav" class="nav-noaction">RANDOM</a> 
             </div>   
         </section>
 
@@ -43,10 +46,20 @@
 
                 <div id="task-content"></div>
         <!-- Mision and menu panel -->
+        
+        
                 <div class="main-and-tasks">
-                    <button id="open-task">Agrega una misión</button>
-                    <div class="main-menu"></div>
-                </div>
+                    <!-- <div class="content-menu"> -->
+                        <div class="section-open-task-menu">
+                            <div id="open-task">
+                                <div class="icon">+</div>
+                                <p>New Task</p>
+                                </div>
+                            <div class="main-menu-task"></div>
+                        </div>
+                        </div>
+                    <!-- </div> -->
+                
     </section>
 <!-- Content habit -->
     <section id="section-habit">
@@ -54,19 +67,29 @@
         <div id="habit-content"></div>
         <!-- menu habits -->
         <div class="main-and-habit">
-            <button id="open-habit">Nuevo Hábito</button>
-            <div class="main-menu"></div>
+            <div class="section-open-task-menu">
+            <div id="open-habit">
+                <div class="icon"></div>
+                <p>Hábitos</p>
+            </div>
+            <div class="main-menu-habit"></div>
+        </div>
         </div>
     </section>
 
 <section id="section-random">
-
-        <div class="random-content"></div>
+        <div id="random-content"></div>
         <!-- menu habits -->
         <div class="main-and-random">
-            <button id="open-random">Misión random</button>
-            <div class="main-menu"></div>
+            <div class="section-open-task-menu">
+            <div id="open-random">
+                <div class="icon"></div>
+                <p>Random</p>
+            </div>
+            <div class="main-menu-random"></div>
         </div>
+        </div>
+
     </section>
 </div> <!-- div class app -->
 
@@ -76,26 +99,62 @@
             <div class="section-add-task">
                 <form id="form-task">
                     <div class="nav-section">
-                        <div class="button-back">
+                        <div class="button-back"> <!--la X-->
                             <a id="close-task">x</a>
                         </div>
                         <div class="text-mision">
                             <h3>Add mision</h3>
-                        </div>
-                        <div class="done-button">
-                            <button id ="done-button-task" type="submit" >Done</button>
+                            <p>¡Vamos heroe! lucha ahora y sé inmortal.</p>
                         </div>
                     </div>
                     <div class="task-title-description">
+                        <p>Name Task</p>
                     <input id="input-task" type="text" placeholder="Mision">
-                    <input id="input-description" type="text" placeholder="task-description">
+                        <p>Description</p>
+                    <input id="input-description" type="text" placeholder="Description">
+                    </div>
+                    <div class="done-button">
+                        <div class="done-button-container">
+                            <button id ="done-button-task" type="submit" >Done</button>
+                            <button id ="cancel-button" type="button" >Cancel</button>
+                        </div>
+                        
                     </div>
                 </form>
             </div>
         </section>
 
 <!-- Add habbits menu-->
-        <section id="container-add-habit">
+
+<section id="container-add-habit">
+    <div class="section-add-habit">
+        <form id="form-habit">
+            <div class="nav-section">
+                <div class="button-back"> <!--la X-->
+                    <a id="close-habit">x</a>
+                </div>
+                <div class="text-habit">
+                    <h3>Add mision</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur.</p>
+                </div>
+            </div>
+            <div class="habit-title-description">
+                <p>Name Task</p>
+            <input id="input-habit" type="text" placeholder="Mision">
+                <p>Description</p>
+            <input id="input-habit" type="text" placeholder="task-description">
+            </div>
+            <div class="done-button">
+                <div class="done-button-container">
+                    <button id ="done-button-habit" type="submit" >Done</button>
+                    <button id ="cancel-button" type="button" >Cancel</button>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+</section>
+        <!-- <section id="container-add-habit">
             <div class="section-add-habit">
                 <form id="form-habit" action="">
                     <div class="nav-section">
@@ -108,15 +167,16 @@
                         <div class="done-habit">
                             <button id= "done_button_habit" type="submit" >Done</button>
                         </div>
-                    </div>
+                    </div>   
                     <div class="habit-title-description">
                     <input id="input-habit" type="text" placeholder="habit">
                     <input id="input-description_habit" type="text" placeholder="habit-description">
                     </div>
                 </form>
             </div>
-        </section>
+        </section> -->
 </div>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/task.js"></script>
     <script src="js/habit.js"></script>

@@ -1,65 +1,106 @@
-const viewRandom = document.querySelector('.random-content');
+const viewRandom = document.getElementById('random-content');
 
-let jaja = 0;
-//Random Task Template
-function random1(){
-// cambiar por random el task del div
+class UIRandom{
+    
+        random1(){
+            // cambiar por random el task del div
+            
+                const element = document.createElement('div');
+                element.className = "task";
+                element.innerHTML=`
+                        <input type="checkbox" name="check-random-false">
+                        <div class="container">
+                            <p>Hola 1</p>
+                            <p>My name is Giovanny Giorgio</p>
+                        </div>
+                    <button name="delateRandom">x</button> 
+                `
+                viewRandom.prepend(element);
+            }
 
-    const element = document.createElement('div');
-    element.className = "task";
-    element.innerHTML=`
-            <input type="checkbox" class="check-random">
-            <div class="container">
-                <p>Hola 1</p>
-                <p>My name is Giovanny Giorgio</p>  
-    `
-    viewRandom.prepend(element);
-}
-
-function random2(){
+        random2(){
     // cambiar por random el task del div
     
         const element = document.createElement('div');
         element.className = "task";
         element.innerHTML=`
-                <input type="checkbox" name ="delatearbol" class="check-random">
+                <input type="checkbox" name="check-random-false">
                 <div class="container">
                     <p>Adios 2</p>
                     <p>Painkiller</p>  
+                </div>
+                    <button name="delateRandom">x</button> 
         `
         viewRandom.prepend(element);
-    }
-
-function random3(){
+            }
+        
+        random3(){
         // cambiar por random el task del div
         
             const element = document.createElement('div');
             element.className = "task";
             element.innerHTML=`
-                    <input type="checkbox" class="check-random">
+                    <input type="checkbox" name="check-random-false">
                     <div class="container">
                         <p>See you tomorrow 3</p>
                         <p>Bate que bate chocolat.</p>  
+                    </div>
+                    <button name="delateRandom">x</button> 
             `
             viewRandom.prepend(element);
             
+            }
+
+        random4(){
+            // cambiar por random el task del div
+            
+                const element = document.createElement('div');
+                element.className = "task";
+                element.innerHTML=`
+                        <input type="checkbox" name="check-random-false">
+                        <div class="container">
+                            <p>Eureka ☺</p>
+                            <p>Rumbo a 4 añoxd</p> 
+                        </div>
+                        <button name="delateRandom">x</button> 
+                            
+                `
+                viewRandom.prepend(element);
+                
+            }
+
+        //delate random Funtion
+        delateRandom(element){
+            if(element.name === 'delateRandom' ){
+                element.parentNode.remove();
+            }
+
         }
 
-function random7(){
-        // cambiar por random el task del div
+        randomFinish(element){      
+
         
-            const element = document.createElement('div');
-            element.className = "task";
-            element.innerHTML=`
-                    <input type="checkbox" class="check-random">
-                    <div class="container">
-                        <p>Eureka ☺</p>
-                        <p>Rumbo a 4 añoxd</p>  
-            `
-            jaja=element;
-            viewRandom.prepend(element);
-            
+            if(element.name === 'check-random-false'){
+                
+                element.parentNode.className='task-completed';
+                element.name='check-random-true';
+                viewRandom.appendChild(element.parentNode);
+            }
+    
+            else if(element.name === 'check-random-true'){
+                
+                element.parentNode.className='task';
+                element.name='check-random-false';
+                viewRandom.prepend(element.parentNode);
+            }
         }
+    }
+
+
+
+
+
+
 //delate random
 
 //Random count 
@@ -83,7 +124,7 @@ function random7(){
 //DOM Events
 document.getElementById('open-random').addEventListener('click', (  ) => {
 
-    
+    const ui = new UIRandom();
     count();  
     let valueCount = ranNums[ranNums.length -1]; 
           if(ranNums.length > 3){
@@ -98,40 +139,46 @@ document.getElementById('open-random').addEventListener('click', (  ) => {
     //Condiciones 
         switch(valueCount){
 
-        case 1: random1();  
+        case 1: ui.random1();  
         break;
 
-        case 2: random2();  
+        case 2: ui.random2();  
         break;
 
-        case 3: random3();  
+        case 3: ui.random3();  
         break;
 
-        case 4: random7();
+        case 4: ui.random4();
         break;
 
         case 0: alert('Ya no quedan más misiones');
         break;
     }
+});
 
+//delate Random Misions
 
-})
-//Random Delate
-
-document.querySelector('.random-content').addEventListener('click', (e) =>{
+document.getElementById('random-content').addEventListener('click', (e) =>{
     
-        
-    console.log(delateRandom);
-
-    if(delateRandom.className ==="check-random"){
-        jaja.innerHTML='sep';
-    }
-
-
-
-
-    // if(element.className ==='check-random
-    // const ui = new UI();
-    // ui.habitDelate(e.target);
+    const ui = new UIRandom();
+    ui.delateRandom(e.target);
     
 });
+
+document.getElementById('random-content').addEventListener('click', (e) =>{
+    
+    const ui = new UIRandom();
+    ui.randomFinish(e.target);
+    
+});
+
+//Drag and Drop
+let randomList = document.getElementById('random-content');
+
+Sortable.create(randomList, {
+    animation: 150,
+    chosenClass: "select-task",
+    dragClass: "fantasma"
+});
+
+

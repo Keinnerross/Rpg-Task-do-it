@@ -1,7 +1,7 @@
 /* Navegation menu trought app */
-let task = document.querySelector('.task-nav')
-let habits = document.querySelector('.habit-nav');
-let random = document.querySelector('.random-nav');
+let task = document.querySelector('#task-nav')
+let habits = document.querySelector('#habit-nav');
+let random = document.querySelector('#random-nav');
 
 
 /*sections boxes of menu*/

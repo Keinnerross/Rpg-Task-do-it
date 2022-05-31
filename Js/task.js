@@ -4,6 +4,7 @@ let open = document.querySelector('#open-task');
 let close = document.querySelector('#close-task')
 let box = document.querySelector('#container-add-task')
 let doneButtonTask = document.querySelector('#done-button-task')
+let cancelButtonTask = document.querySelector('#cancel-button')
 
 open.addEventListener('click', () => {
     box.style.display= 'flex'
@@ -12,6 +13,11 @@ open.addEventListener('click', () => {
 close.addEventListener('click', () => {
     box.style.display= 'none'
 });
+
+cancelButtonTask.addEventListener('click', () => {
+    box.style.display= 'none'
+});
+
 
 doneButtonTask.addEventListener('click', () => {
     box.style.display= 'none'
@@ -36,13 +42,18 @@ class UItask{
         const viewTask = document.getElementById('task-content');
         const element = document.createElement('div');
         element.className = 'task';
+        element.draggable = 'true';
         element.innerHTML= `
-        <input type="checkbox" class="task-complete-false">
-        <div class="container">
-            <div class="#">${task.titleTask}</div>
-            <div class="#">${task.descriptionTask}</div>
+        <div class="check-container">
+        <div class="task-complete-false"></div>
         </div>
-        <button name="delateTask">x</button>
+        <div class="container-task">
+            <div class="title">${task.titleTask}</div>
+            <div class="description">${task.descriptionTask}</div>
+        </div>
+        <div class="delate-container">
+        <button class="delateTask"name="delateTask">x</button>
+        </div>
         `
         viewTask.prepend(element);
     }
@@ -50,7 +61,7 @@ class UItask{
 
     delateTask(element){
         if(element.name === 'delateTask'){
-            element.parentNode.remove();
+            element.parentNode.parentNode.remove();
         }
     }
 
@@ -61,16 +72,16 @@ class UItask{
         
         if(element.className === 'task-complete-false'){
             
-            element.parentNode.className='task-completed';
+            element.parentNode.parentNode.className='task-completed';
             element.className='task-complete-true'
-            viewTask.appendChild(element.parentNode);
+            viewTask.element.parentNode.parentNode;
         }
 
         else if(element.className === 'task-complete-true'){
             
-            element.parentNode.className='task';
+            element.parentNode.parentNode.className='task';
             element.className='task-complete-false'
-            viewTask.prepend(element.parentNode);
+            viewTask.element.parentNode.parentNode;
         }
         
         
@@ -106,6 +117,17 @@ document.getElementById('task-content').addEventListener('click', (e) => {
     const ui = new UItask();
     ui.taskFinish(e.target);
 })
+
+//Drag and Drop
+
+let taskList = document.getElementById('task-content');
+
+Sortable.create(taskList, {
+    animation: 150,
+    chosenClass: "select-task",
+    dragClass: "fantasma"
+    
+});
 
 
 
