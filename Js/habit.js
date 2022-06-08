@@ -1,7 +1,7 @@
 let openHabit = document.querySelector('#open-habit');
 let closeHabit = document.querySelector('#close-habit')
 let boxHabit = document.querySelector('#container-add-habit')
-let buttonHabit = document.querySelector('#done_button_habit')
+let buttonHabit = document.querySelector('#done-button-habit')
 
 openHabit.addEventListener('click', () => {
     boxHabit.style.display= 'flex'
@@ -36,17 +36,20 @@ class UI{
         const element = document.createElement('div');
         element.className ="habit";
         element.innerHTML = `
+        <div class="check-container">
         <button name= "complete">+</button>
-        <div class="container">
-            <div class="#">${habit.title}</div>
-            <div class="#">${habit.description}</div>
+        </div>
+        <div class="container-habit">
+            <div class="title">${habit.title}</div>
+            <div class="description">${habit.description}</div>
         </div>
         <div>
             <div>${habit.habitComplete}</div>
             <div>${habit.habitFail}</div>
         </div>
+        <div class="delate-container">
         <button name= "fail">-</button>
-        
+        </div>
         `
         formHabit.reset();  // Para vaciar los imputs 
         viewHabit.appendChild(element);
@@ -57,16 +60,16 @@ class UI{
         
         if(element.name === 'complete'){
             
-            let valor = parseInt(element.nextElementSibling.nextElementSibling.firstElementChild.textContent) + 1;
-            element.nextElementSibling.nextElementSibling.firstElementChild.innerHTML = valor;
+            let valor = parseInt(element.parentNode.nextElementSibling.nextElementSibling.firstElementChild.textContent) + 1;
+            element.parentNode.nextElementSibling.nextElementSibling.firstElementChild.innerHTML = valor;
             
          }      
     }
 
     habitFail(element){
         if(element.name === 'fail'){
-            let valor = parseInt(element.previousElementSibling.lastElementChild.textContent) -1;
-            element.previousElementSibling.lastElementChild.innerHTML = valor;
+            let valor = parseInt(element.parentNode.previousElementSibling.lastElementChild.textContent) -1;
+            element.parentNode.previousElementSibling.lastElementChild.innerHTML = valor;
             }
     }
 
