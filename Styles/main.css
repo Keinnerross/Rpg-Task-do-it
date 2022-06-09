@@ -139,6 +139,7 @@ header nav{
     background-color: #003a5d;
     border-radius: 9px;
     padding: 10px;
+    
 }
 /*  Task content*/
 
@@ -201,6 +202,7 @@ header nav{
     height: 100%;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    text-align: center;
     
 
 }
@@ -266,12 +268,14 @@ header nav{
     display: inline-flex;
     width: 25%;
     min-width: 100px;
-    height: 75px; ;
+    height: 71px; ;
     min-height:65px;
     background-color: gainsboro;
     margin: 20px;
     border-radius: 15px;
     box-shadow: 0px 8px 11px -2px rgba(0,0,0,0.16);
+    filter: grayscale(100);
+    border: dashed gray 2px;
     
 }
 
@@ -304,7 +308,7 @@ header nav{
     align-content: center;
     display: flex;
     padding-top: 120px;
-    cursor: pointer;
+   
     
 }
 .section-open-task-menu{
@@ -333,7 +337,7 @@ header nav{
     padding-top: 10px;
     padding-left: 20px;
     color: #b2b2b2;
-    font-weight: 200px;
+    
 }
 .icon{
     width: 40px;
@@ -395,7 +399,8 @@ header nav{
 
 #open-habit p{
     padding-top: 10px;
-    padding-left: 20px
+    padding-left: 20px;
+    color: #b2b2b2;
 }
 
 .main-menu-habit{
@@ -415,11 +420,9 @@ header nav{
 /*random section */
 
 #section-random{
-    height: 100vh;
-    min-height: 100vh;
-    max-height: 100vh;
-    background-color: gold;
-    display: none;
+    height: 70vh;
+    max-height: auto;
+    background-color: #f9f9f9;
 }
 
 #random-content{
@@ -449,14 +452,20 @@ header nav{
 
 #open-random p{
     padding-top: 10px;
-    padding-left: 20px
+    padding-left: 20px;
+    color: #b2b2b2;
 }
 
 .main-menu-random{
-    width: 40px;
+    width: 30px;
     height: 100%;
-    background-color: aquamarine;
+    background-image: url(https://www.samueldiosdado.com/wp-content/uploads/2017/08/Men%C3%BA-hamburguesa-herramienta-practica-o-icono-inutil.png);
+    background-size: contain;
+    background-repeat: no-repeat;
     text-align: left;
+    background-color: white;
+    background-position-y: center;
+    border-right: solid white 15px;
     
 }
 
@@ -584,17 +593,7 @@ padding-top: 10px;
     cursor: pointer;
 }
 
-#done-button-task:hover{
-    background-color: white;
-    color:#003a5d ;
-    border-radius: 9px;
-    padding: 5px;
-    border: 0;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    filter: none;
-}
+
 
 #cancel-button{
     background-color: white;
@@ -614,30 +613,29 @@ padding-top: 10px;
 #container-add-habit{
     width: 100%;
     height: 100%;
+    backdrop-filter: brightness(80%) blur(2px);   
     display: none;
     align-items: center;
     justify-content: center;
-    position: absolute;
-
-    z-index: 10000;
-    
+    position:absolute;
+    z-index: 10000;    
 }
 
 
 .section-add-habit{
     width: 500px;
-    height: 600px;
-    background-color: bisque;
+    height: auto;
+    background-color: #F9F9F9;
+    border-radius: 25px;
 }
 
 /*nav*/
 
-
-
 .text-habit{
-    width: 70%  ;
-    text-align: center;
-    
+    width: 100%  ;
+    text-align: justify;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .text-habit h3{
@@ -647,34 +645,50 @@ padding-top: 10px;
 /*inputs habitos */
 
 .habit-title-description{
-    padding: 40px;
-    height: 120px;
-    background-color: chocolate;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 14px;
 }
 
 #input-habit{
-    color:white;
+    background-color: #e5e5e5 ;
+    width: 380px;
+    padding: 10px;
     display: block;
     border: none;
-    background-color: transparent;
-    border-bottom: solid black 1px;
+    border-radius: 25px;
     margin-bottom: 20px;
 }
 
 #input-description_habit{
-    color:white;
-    border: none;
-    background-color: transparent;
-    border-bottom: solid black 1px;
-    margin-bottom: 20px;
+    background-color: #e5e5e5 ;
+    width: 380px;
+    padding: 10px;
     display: block;
+    border: none;
+    border-radius: 25px;
+    margin-bottom: 20px;  
 }
 
 #close-habit{
     margin-left: 20px;
     font-size: 30px;
     color: blue;
+    cursor: pointer;
 }
+
+#done-button-habit{
+    background-color: white;
+    color:#003a5d ;
+    border-radius: 9px;
+    padding: 5px;
+    border: 0;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
 
 /* Tarjets habits */
 
@@ -691,13 +705,24 @@ padding-top: 10px;
 }
 
 .container-habit{
-
-width: 75%;
+    width: 75%;
     height: 100%;
     max-width: 100%;
     padding-left: 20px;
     padding-top: 10px;
 }
+
+.container-counter{
+    display:flex;
+    padding-top: 40px;
+    margin-right: 5px;
+}
+.container-counter p{
+    font-weight: bold;
+    
+    font-size: 14px;
+}
+
 .select-task{
     cursor: move;
 }

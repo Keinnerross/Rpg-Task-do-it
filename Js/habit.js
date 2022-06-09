@@ -43,12 +43,12 @@ class UI{
             <div class="title">${habit.title}</div>
             <div class="description">${habit.description}</div>
         </div>
-        <div>
-            <div>${habit.habitComplete}</div>
-            <div>${habit.habitFail}</div>
+        <div class="container-counter">
+            <p>+${habit.habitComplete}</p>
+            <p>-${habit.habitFail}</p>
         </div>
         <div class="delate-container">
-        <button name= "fail">-</button>
+        <button name="fail">-</button>
         </div>
         `
         formHabit.reset();  // Para vaciar los imputs 

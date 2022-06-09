@@ -8,12 +8,16 @@ class UIRandom{
                 const element = document.createElement('div');
                 element.className = "task";
                 element.innerHTML=`
-                        <input type="checkbox" name="check-random-false">
-                        <div class="container">
-                            <p>Hola 1</p>
-                            <p>My name is Giovanny Giorgio</p>
-                        </div>
-                    <button name="delateRandom">x</button> 
+                <div class="check-container">
+                <div class="task-complete-false"></div>
+                </div>
+                <div class="container-task">
+                <p class="title">Escala una montaña</p>
+                <p class="description">Conquista la cima &#x26F0;&#xFE0F;</p>
+            </div>
+                        <div class="delate-container">
+            <button class="delateTask"name="delateTask">x</button>
+            </div> 
                 `
                 viewRandom.prepend(element);
             }
@@ -24,12 +28,16 @@ class UIRandom{
         const element = document.createElement('div');
         element.className = "task";
         element.innerHTML=`
-                <input type="checkbox" name="check-random-false">
-                <div class="container">
-                    <p>Adios 2</p>
-                    <p>Painkiller</p>  
+                <div class="check-container">
+                <div class="task-complete-false"></div>
                 </div>
-                    <button name="delateRandom">x</button> 
+                <div class="container-task">
+                <p class="title">Ve de pesca</p>
+                <p class="description">Consigue provisiones</p>
+                </div>
+                <div class="delate-container">
+                <button class="delateTask"name="delateTask">x</button>
+                </div> 
         `
         viewRandom.prepend(element);
             }
@@ -40,12 +48,16 @@ class UIRandom{
             const element = document.createElement('div');
             element.className = "task";
             element.innerHTML=`
-                    <input type="checkbox" name="check-random-false">
-                    <div class="container">
-                        <p>See you tomorrow 3</p>
-                        <p>Bate que bate chocolat.</p>  
-                    </div>
-                    <button name="delateRandom">x</button> 
+                <div class="check-container">
+                <div class="task-complete-false"></div>
+                </div>
+                <div class="container-task">
+                <p class="title">Corre 3Km</p>
+                <p class="description">Entrena como un Dios</p>
+                </div>
+                <div class="delate-container">
+                <button class="delateTask"name="delateTask">x</button>
+                </div> 
             `
             viewRandom.prepend(element);
             
@@ -57,13 +69,16 @@ class UIRandom{
                 const element = document.createElement('div');
                 element.className = "task";
                 element.innerHTML=`
-                        <input type="checkbox" name="check-random-false">
-                        <div class="container">
-                            <p>Eureka ☺</p>
-                            <p>Rumbo a 4 añoxd</p> 
-                        </div>
-                        <button name="delateRandom">x</button> 
-                            
+                <div class="check-container">
+                <div class="task-complete-false"></div>
+                </div>
+                <div class="container-task">
+                <p class="title">Tomate una foto</p>
+                <p class="description">Ama quien eres ♥</p>
+            </div>
+                        <div class="delate-container">
+        <button class="delateTask"name="delateTask">x</button>
+        </div>             
                 `
                 viewRandom.prepend(element);
                 
@@ -77,22 +92,26 @@ class UIRandom{
 
         }
 
-        randomFinish(element){      
-
-        
-            if(element.name === 'check-random-false'){
+        randomFinish(element){
+            const viewTask = document.getElementById('task-content');
+            
+    
+            
+            if(element.className === 'task-complete-false'){
                 
-                element.parentNode.className='task-completed';
-                element.name='check-random-true';
-                viewRandom.appendChild(element.parentNode);
+                element.parentNode.parentNode.className='task-completed';
+                element.className='task-complete-true'
+                viewTask.element.parentNode.parentNode;
             }
     
-            else if(element.name === 'check-random-true'){
+            else if(element.className === 'task-complete-true'){
                 
-                element.parentNode.className='task';
-                element.name='check-random-false';
-                viewRandom.prepend(element.parentNode);
+                element.parentNode.parentNode.className='task';
+                element.className='task-complete-false'
+                viewTask.element.parentNode.parentNode;
             }
+            
+            
         }
     }
 
@@ -172,6 +191,13 @@ document.getElementById('random-content').addEventListener('click', (e) =>{
     
 });
 
+//Task Complete
+
+document.getElementById('random-content').addEventListener('click', (e) => {
+    const ui = new UItask();
+    ui.randomFinish(e.target);
+})
+
 //Drag and Drop
 let randomList = document.getElementById('random-content');
 
@@ -180,5 +206,6 @@ Sortable.create(randomList, {
     chosenClass: "select-task",
     dragClass: "fantasma"
 });
+
 
 
