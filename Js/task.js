@@ -73,15 +73,18 @@ class UItask{
         if(element.className === 'task-complete-false'){
             
             element.parentNode.parentNode.className='task-completed';
-            element.className='task-complete-true'
-            viewTask.element.parentNode.parentNode;
-        }
+            element.className='task-complete-true';
+            progressBarSystem();
+            }
+            
+    
 
         else if(element.className === 'task-complete-true'){
             
             element.parentNode.parentNode.className='task';
-            element.className='task-complete-false'
-            viewTask.element.parentNode.parentNode;
+            element.className='task-complete-false';
+            decreaseProgresBarSystem(valueExp);
+            
         }
         
         
