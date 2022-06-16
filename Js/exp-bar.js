@@ -1,40 +1,44 @@
 
 const progressBar = document.getElementById('progress');
-let valueProgress = 1;
-let valueExp = 10;
-let other = valueExp;
-let totalValueBar = `${valueExp}%`;
+const levelValue = document.querySelector('.level-value');
+//vars
+
+let lvl = 1;
+
+let xp = 0;
+
+let maxXp= lvl * 100;
 
 function nextLevel(){
-    if(valueExp > 99){
-        valueExp = 10;
-        progressBar.style.width = valueExp;
-        
+           if(xp >= maxXp){
+            xp = 20;
+            lvl++;
+            maxXp= lvl * 100;
+            levelValue.innerHTML = lvl;
+            progressBarSystem();
+            
+            // console.log(xp,lvl,maxXp)
+           }
 
     }
-}
-
-function resta(){
-valueExp = valueExp / 2;
-    totalValueBar = `${valueExp}%`;
-    return totalValueBar;
-}
 
 function progressBarSystem(){
-    nextLevel();
-    progressBar.style.width = totalValueBar; 
-    valueExp = valueExp + valueExp;
-    totalValueBar = `${valueExp}%`;
-    console.log(totalValueBar);
+
+    progressBar.style.width = `${xp / maxXp * 100}%`; 
+    console.log(xp);
         }
 
         
 function decreaseProgresBarSystem(){
-    
-    resta();
-    progressBar.style.width = totalValueBar;
-    
-    
-    console.log(totalValueBar);
-            
+    if(xp <= 20){
+        lvl--;
+        maxXp= lvl * 100;
+        xp = 80 * lvl;
+        levelValue.innerHTML = lvl;
+        progressBarSystem();
         }
+    else if(xp > 20){
+        xp = xp - 25;
+        progressBarSystem();
+        }      
+    }

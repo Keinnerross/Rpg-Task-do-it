@@ -74,8 +74,11 @@ class UItask{
             
             element.parentNode.parentNode.className='task-completed';
             element.className='task-complete-true';
+            xp = xp + 40;
             progressBarSystem();
-            }
+            nextLevel();
+            
+        }
             
     
 
@@ -83,7 +86,9 @@ class UItask{
             
             element.parentNode.parentNode.className='task';
             element.className='task-complete-false';
-            decreaseProgresBarSystem(valueExp);
+            decreaseProgresBarSystem();
+            
+           
             
         }
         
