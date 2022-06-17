@@ -19,26 +19,31 @@
     <div class="app"> 
         <header>
             <nav>
-                <div class="perfil-picture"></div>
-                    <div class="hero-description">
-                        <h4>HERO NAME</h4>
-                        <p>Hero class</p>
+                <input type="file" class="input-img-perfil" name="archivo"/>
+                <div class="perfil-picture">
+                    </div>
+                <div class="hero-description">
+                        <h4 class="hero-name">HERO NAME</h4>
+                        <div class="button-edit-name"></div>
+                        <br>
+                        <p class="hero-description-text">Hero description</p>
+                        <div class="button-edit-description"></div>
                         <div class="exp-bar">
                             <div id="progress" class="progress"></div>
                         </div>
                     </div>
-                        <div class="coin-level">
+                 <div class="coin-level">
                             <h5>10</h5>
                             <div class="coin"></div>
                             <h4 class="level-value">1</h4>
-                        </div>
+                    </div>
             </nav>
         </header>
 
         <section class="task-menu">
             <div class="nav-task">
-                <a href="#" id="task-nav" class="nav-noaction">TASKS</a>
-                <a href="#" id="habit-nav" class="nav-action">HABITS</a>
+                <a href="#" id="task-nav" class="nav-action">TASKS</a>
+                <a href="#" id="habit-nav" class="nav-noaction">HABITS</a>
                 <a href="#" id="random-nav" class="nav-noaction">RANDOM</a> 
             </div>   
         </section>
@@ -54,10 +59,7 @@
                     <!-- <div class="content-menu"> -->
                         <div class="section-open-task-menu">
                             <div id="open-task">
-                                <div class="icon">+</div>
-                                <p>New Task</p>
-                                </div>
-                            <div class="main-menu-task"></div>
+                                <div class="icon"></div>                          
                         </div>
                         </div>
                     <!-- </div> -->
@@ -71,10 +73,9 @@
         <div class="main-and-habit">
             <div class="section-open-task-menu">
             <div id="open-habit">
-                <div class="icon">+</div>
-                <p>New Habit</p>
+                <div class="icon"></div>
             </div>
-            <div class="main-menu-habit"></div>
+            
         </div>
         </div>
     </section>
@@ -85,10 +86,8 @@
         <div class="main-and-random">
             <div class="section-open-task-menu">
             <div id="open-random">
-                <div class="icon">+</div>
-                <p>Random</p>
+                <div class="icon"></div>
             </div>
-            <div class="main-menu-random"></div>
         </div>
         </div>
 
@@ -111,7 +110,8 @@
                     </div>
                     <div class="task-title-description">
                         <p>Name Task</p>
-                    <input id="input-task" type="text" placeholder="Mision">
+                        
+                    <input id="input-task" type="text" placeholder="Mision" required>
                         <p>Description</p>
                     <input id="input-description" type="text" placeholder="Description">
                     </div>
@@ -156,30 +156,10 @@
         </form>
     </div>
 </section>
-        <!-- <section id="container-add-habit">
-            <div class="section-add-habit">
-                <form id="form-habit" action="">
-                    <div class="nav-section">
-                        <div class="button-back">
-                            <a id="close-habit">x</a>
-                        </div>
-                        <div class="text-habit">
-                            <h3>Añadir Hábito</h3>
-                        </div>
-                        <div class="done-habit">
-                            <button id= "done_button_habit" type="submit" >Done</button>
-                        </div>
-                    </div>   
-                    <div class="habit-title-description">
-                    <input id="input-habit" type="text" placeholder="habit">
-                    <input id="input-description_habit" type="text" placeholder="habit-description">
-                    </div>
-                </form>
-            </div>
-        </section> -->
 </div>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <script src="js/nav.js"></script>
+    <script src="js/avatar.js"></script>
     <script src="js/exp-bar.js"></script>
     <script src="js/task.js"></script>
     <script src="js/habit.js"></script>

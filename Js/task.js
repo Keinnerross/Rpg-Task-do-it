@@ -69,7 +69,6 @@ class UItask{
         const viewTask = document.getElementById('task-content');
         
 
-        
         if(element.className === 'task-complete-false'){
             
             element.parentNode.parentNode.className='task-completed';

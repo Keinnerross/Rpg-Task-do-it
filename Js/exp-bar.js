@@ -38,7 +38,7 @@ function decreaseProgresBarSystem(){
         progressBarSystem();
         }
     else if(xp > 20){
-        xp = xp - 25;
+        xp = xp -40;
         progressBarSystem();
         }      
     }

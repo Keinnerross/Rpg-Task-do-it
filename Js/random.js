@@ -16,7 +16,7 @@ class UIRandom{
                 <p class="description">Conquista la cima &#x26F0;&#xFE0F;</p>
             </div>
                         <div class="delate-container">
-            <button class="delateTask"name="delateTask">x</button>
+            <button class="delateTask"name="delateRandom">x</button>
             </div> 
                 `
                 viewRandom.prepend(element);
@@ -36,7 +36,7 @@ class UIRandom{
                 <p class="description">Consigue provisiones</p>
                 </div>
                 <div class="delate-container">
-                <button class="delateTask"name="delateTask">x</button>
+                <button class="delateTask"name="delateRandom">x</button>
                 </div> 
         `
         viewRandom.prepend(element);
@@ -56,7 +56,7 @@ class UIRandom{
                 <p class="description">Entrena como un Dios</p>
                 </div>
                 <div class="delate-container">
-                <button class="delateTask"name="delateTask">x</button>
+                <button class="delateTask"name="delateRandom">x</button>
                 </div> 
             `
             viewRandom.prepend(element);
@@ -77,7 +77,7 @@ class UIRandom{
                 <p class="description">Ama quien eres ♥</p>
             </div>
                         <div class="delate-container">
-        <button class="delateTask"name="delateTask">x</button>
+        <button class="delateTask" name="delateRandom">x</button>
         </div>             
                 `
                 viewRandom.prepend(element);
@@ -86,29 +86,26 @@ class UIRandom{
 
         //delate random Funtion
         delateRandom(element){
-            if(element.name === 'delateRandom' ){
-                element.parentNode.remove();
+            if(element.name === 'delateRandom'){
+                element.parentNode.parentNode.remove();
             }
-
         }
 
         randomFinish(element){
             const viewTask = document.getElementById('task-content');
             
-    
-            
             if(element.className === 'task-complete-false'){
                 
                 element.parentNode.parentNode.className='task-completed';
                 element.className='task-complete-true'
-                viewTask.element.parentNode.parentNode;
+                
             }
     
             else if(element.className === 'task-complete-true'){
                 
                 element.parentNode.parentNode.className='task';
                 element.className='task-complete-false'
-                viewTask.element.parentNode.parentNode;
+                
             }
             
             
@@ -183,6 +180,7 @@ document.getElementById('random-content').addEventListener('click', (e) =>{
     ui.delateRandom(e.target);
     
 });
+//Task Complete
 
 document.getElementById('random-content').addEventListener('click', (e) =>{
     
@@ -190,13 +188,6 @@ document.getElementById('random-content').addEventListener('click', (e) =>{
     ui.randomFinish(e.target);
     
 });
-
-//Task Complete
-
-document.getElementById('random-content').addEventListener('click', (e) => {
-    const ui = new UItask();
-    ui.randomFinish(e.target);
-})
 
 //Drag and Drop
 let randomList = document.getElementById('random-content');
