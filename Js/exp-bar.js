@@ -11,12 +11,12 @@ let maxXp= lvl * 100;
 
 function nextLevel(){
            if(xp >= maxXp){
+            progressBarSystem();
             xp = 20;
             lvl++;
             maxXp= lvl * 100;
             levelValue.innerHTML = lvl;
-            progressBarSystem();
-            
+            setTimeout(progressBarSystem, 200);            
             // console.log(xp,lvl,maxXp)
            }
 
