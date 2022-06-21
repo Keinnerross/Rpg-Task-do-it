@@ -39,6 +39,7 @@ class Task{
 //UI Events
 class UItask{
     addTask(task){
+        const formTask = document.getElementById('form-task'); // Para vaciar los imputs 
         const viewTask = document.getElementById('task-content');
         const element = document.createElement('div');
         element.className = 'task';
@@ -55,7 +56,9 @@ class UItask{
         <button class="delateTask"name="delateTask">x</button>
         </div>
         `
-        viewTask.prepend(element);
+        formTask.reset(); // Para vaciar los imputs 
+        viewTask.appendChild(element);
+        
     }
 
 
@@ -97,7 +100,7 @@ class UItask{
 //DOM Events
 
 // Add Task
-document.getElementById('form-task').addEventListener('submit', (e) => {
+const formTask = document.getElementById('form-task').addEventListener('submit', (e) => {
 
     const titleTask = document.getElementById('input-task').value;
     const descriptionTask = document.getElementById('input-description').value;
@@ -106,7 +109,7 @@ document.getElementById('form-task').addEventListener('submit', (e) => {
     const task = new Task(titleTask, descriptionTask,);
     const ui = new UItask();
     ui.addTask(task);
-
+    
     e.preventDefault();
 })
 

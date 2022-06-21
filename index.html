@@ -18,6 +18,14 @@
   <div class="content-app">
     <div class="app"> 
         <header>
+            <div class="menu">
+                <div class="container-main-menu">
+                <a href="#">Theme</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Version</a>
+            </div>
+            </div>
             <nav>
                 <input type="file" class="input-img-perfil" name="archivo"/>
                 <div class="perfil-picture">
@@ -26,18 +34,25 @@
                         <input class="hero-name" value="Hero Name" type="text" disabled/>
                         <div class="button-edit-name"></div>
                         <br>
-                        <input class="hero-description-text" value="Hero description" disabled/>
+                        <input class="hero-description-text" placeholder="Your hero description" value="Your hero description" disabled/>
                         <div class="button-edit-description"></div>
+                        <div class="bar-container">
                         <div class="exp-bar">
-                            <div id="progress" class="progress"></div>
+                            <div id="progress" class="progress"></div> 
+                        </div>
+                            <p class="xp-value">0</p>
+                            <p>/</p>
+                            <p class="xp-next-level">100</p>
                         </div>
                     </form>
-                 <div class="coin-level">
-                            <h5>10</h5>
-                            <div class="coin"></div>
+                    
+                 <div class="level">
                             <h4 class="level-value">1</h4>
                     </div>
+
+                   
             </nav>
+            
         </header>
 
         <section class="task-menu">
@@ -113,7 +128,7 @@
                         
                     <input id="input-task" type="text" placeholder="Mision" required>
                         <p>Description</p>
-                    <input id="input-description" type="text" placeholder="Description">
+                    <input id="input-description" type="text" placeholder="Description" required>
                     </div>
                     <div class="done-button">
                         <div class="done-button-container">

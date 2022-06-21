@@ -37,18 +37,21 @@ class UI{
         element.className ="habit";
         element.innerHTML = `
         <div class="check-container">
-        <button name= "complete">+</button>
+        <button name="complete" id="button-plus">+</button>
         </div>
         <div class="container-habit">
             <div class="title">${habit.title}</div>
             <div class="description">${habit.description}</div>
         </div>
         <div class="container-counter">
-            <p>+${habit.habitComplete}</p>
-            <p>-${habit.habitFail}</p>
+            <div class="arrow-ico">►►</div>
+            <p>${habit.habitComplete}</p>
+            <p>ㅤ|</p>
+            <p>ㅤ</p>
+            <p> -${habit.habitFail}</p>
         </div>
         <div class="delate-container">
-        <button name="fail">-</button>
+        <button name="fail" id="button-less">-</button>
         </div>
         `
         formHabit.reset();  // Para vaciar los imputs 
@@ -60,8 +63,11 @@ class UI{
         
         if(element.name === 'complete'){
             
-            let valor = parseInt(element.parentNode.nextElementSibling.nextElementSibling.firstElementChild.textContent) + 1;
-            element.parentNode.nextElementSibling.nextElementSibling.firstElementChild.innerHTML = valor;
+            let valor = parseInt(element.parentNode.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.textContent) + 1;
+            element.parentNode.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.innerHTML = valor;
+            xp = xp + 40;
+            progressBarSystem();
+            nextLevel();
             
          }      
     }
@@ -70,6 +76,7 @@ class UI{
         if(element.name === 'fail'){
             let valor = parseInt(element.parentNode.previousElementSibling.lastElementChild.textContent) -1;
             element.parentNode.previousElementSibling.lastElementChild.innerHTML = valor;
+            decreaseProgresBarSystem();
             }
     }
 
